@@ -1,0 +1,42 @@
+public class AlphaVantageService {
+
+    private static final String API_KEY = 'YOUR_ALPHA_VANTAGE_API_KEY'; // Replace with your Alpha Vantage API key
+    private static final String BASE_URL = 'https://www.alphavantage.co/query?';
+
+    // Method to fetch real-time stock data
+    public static String getRealTimeData(String symbol) {
+        String endpoint = BASE_URL + 'function=TIME_REALTIME&symbol=' + symbol + '&apikey=' + API_KEY;
+        return makeApiCall(endpoint);
+    }
+
+    // Method to fetch historical stock data
+    public static String getHistoricalData(String symbol, String interval) {
+        String endpoint = BASE_URL + 'function=' + interval + '&symbol=' + symbol + '&apikey=' + API_KEY;
+        return makeApiCall(endpoint);
+    }
+
+    // Helper method to make the HTTP callout
+    private static String makeApiCall(String endpoint) {
+        HttpRequest request = new HttpRequest();
+        request.setEndpoint(endpoint);
+        request.setMethod('GET');
+        request.setHeader('Content-Type', 'application/json');
+        
+        Http http = new Http();
+        HttpResponse response;
+
+        try {
+            response = http.send(request);
+        } catch (Exception e) {
+            System.debug('HTTP request failed: ' + e.getMessage());
+            return null;
+        }
+        
+        if (response.getStatusCode() == 200) {
+            return response.getBody();
+        } else {
+            System.debug('HTTP request failed with status code: ' + response.getStatusCode());
+            return null;
+        }
+    }
+}
