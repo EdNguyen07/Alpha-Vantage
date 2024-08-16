@@ -6,7 +6,9 @@ Set Up Remote Site Settings in Salesforce:
 Go to Setup in Salesforce.
 Search for Remote Site Settings.
 Click New Remote Site and enter a name and the Alpha Vantage base URL (https://www.alphavantage.co), then save it.
+
 2. Create Apex Code for Real-Time and Historical Data
+
 3.Explanation:
 API_KEY: Replace 'YOUR_ALPHA_VANTAGE_API_KEY' with your actual Alpha Vantage API key.
 BASE_URL: The base URL for Alpha Vantage API endpoints.
