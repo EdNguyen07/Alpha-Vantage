@@ -9,7 +9,7 @@ Click New Remote Site and enter a name and the Alpha Vantage base URL (https://w
 
 2. Create Apex Code for Real-Time and Historical Data
 
-3.Explanation:
+3. Explanation:
 API_KEY: Replace 'YOUR_ALPHA_VANTAGE_API_KEY' with your actual Alpha Vantage API key.
 BASE_URL: The base URL for Alpha Vantage API endpoints.
 getRealTimeData(String symbol): This method constructs the URL for the real-time data API call and uses the makeApiCall helper method to send the request.
